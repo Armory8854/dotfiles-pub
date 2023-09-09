@@ -8,6 +8,9 @@ mod = "mod4"
 terminal = guess_terminal()
 
 keys = [
+    # My Additions
+    Key([mod, "shift"], "u", lazy.spawn("pactl -- set-sink-volume 0 +10%"), desc="Raise vol by 10%"),
+    Key([mod, "shift"], "d", lazy.spawn("pactl -- set-sink-volume 0 -10%"), desc="Lower vol by 10%"),
     # A list of available commands that can be bound to keys can be found
     # at https://docs.qtile.org/en/latest/manual/config/lazy.html
     # Switch between windows
