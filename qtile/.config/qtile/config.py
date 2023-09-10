@@ -8,7 +8,8 @@ mod = "mod4"
 terminal = guess_terminal()
 
 colors = {
-    "green":"#8ae234"
+    "green":"#8ae234",
+    "red":"#ef2929"
 }
 
 keys = [
@@ -128,11 +129,18 @@ screens = [
                     name_transform=lambda name: name.upper(),
                 ),
                 widget.CPU(foreground=colors["green"]),
-                widget.Memory(),
+                widget.Memory(foreground=colors["red"]),
+                widget.Backlight(
+                    backlight_name = "intel_backlight",
+                    format="DP: {percent:2.0%}"
+                ),
                 # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
                 # widget.StatusNotifier(),
                 widget.Systray(),
-                widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
+                widget.Clock(
+                    format="%Y-%m-%d %a %I:%M %p",
+                    foreground=colors["green"]
+                ),
                 widget.QuickExit(),
             ],
             24,
