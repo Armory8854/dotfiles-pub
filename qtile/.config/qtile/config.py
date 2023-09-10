@@ -7,10 +7,16 @@ from libqtile.utils import guess_terminal
 mod = "mod4"
 terminal = guess_terminal()
 
+colors = {
+    "green":"#8ae234"
+}
+
 keys = [
     # My Additions
-    Key([mod, "shift"], "u", lazy.spawn("pactl -- set-sink-volume 0 +10%"), desc="Raise vol by 10%"),
-    Key([mod, "shift"], "d", lazy.spawn("pactl -- set-sink-volume 0 -10%"), desc="Lower vol by 10%"),
+    Key([mod, "shift"], "u", lazy.spawn("pactl -- set-sink-volume 0 +5%"), desc="Raise vol by 5%"),
+    Key([mod, "shift"], "d", lazy.spawn("pactl -- set-sink-volume 0 -5%"), desc="Lower vol by 5%"),
+    Key([mod], "b", lazy.spawn("brightnessctl set 5%+"), desc="Raise brightness by 5%"),
+    Key([mod, "shift"], "b", lazy.spawn("brightnessctl set 5%-"), desc="Lower brightness by 5%"),
     # A list of available commands that can be bound to keys can be found
     # at https://docs.qtile.org/en/latest/manual/config/lazy.html
     # Switch between windows
@@ -121,8 +127,8 @@ screens = [
                     },
                     name_transform=lambda name: name.upper(),
                 ),
-                widget.TextBox("default config", name="default"),
-                widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
+                widget.CPU(foreground=colors["green"]),
+                widget.Memory(),
                 # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
                 # widget.StatusNotifier(),
                 widget.Systray(),
@@ -171,22 +177,26 @@ reconfigure_screens = True
 
 # If things like steam games want to auto-minimize themselves when losing
 # focus, should we respect this or not?
-auto_minimize = True
-
-# When using the Wayland backend, this can be used to configure input devices.
-wl_input_rules = None
+dgroups_app_rules = []  # type: list
+follow_mouse_focus = True
+bring_front_click = False
+floats_kept_above = True
+cursor_warp = False
+floating_layout = layout.Floating(
+    float_rules=[
+        # Run the utility of `xprop` to see the wm class and name of an X client.
+        *layout.Floating.default_float_rules,
+        Match(wm_class="confirmreset"),  # gitk
+        Match(wm_class="makebranch"),  # gitk
+        Match(wm_class="maketag"),  # gitk
+        Match(wm_class="ssh-askpass"),  # ssh-askpass
+        Match(title="branchdialog"),  # gitk
+        Match(title="pinentry"),  # GPG key password entry
+    ]
+)
+auto_fullscreen = True
 
 @hook.subscribe.startup_once
 def autostart():
-	home = os.path.expanduser('~/.config/qtile/autostart.sh')
-	subprocess.call([home])
-
-# XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
-# string besides java UI toolkits; you can see several discussions on the
-# mailing lists, GitHub issues, and other WM documentation that suggest setting
-# this string if your java app doesn't work correctly. We may as well just lie
-# and say that we're a working one by default.
-#
-# We choose LG3D to maximize irony: it is a 3D non-reparenting WM written in
-# java that happens to be on java's whitelist.
-wmname = "LG3D"
+    home = os.path.expanduser("~/.config/qtile/autostart.sh")
+    subprocess.call([home])
