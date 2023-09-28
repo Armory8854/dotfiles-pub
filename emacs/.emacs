@@ -41,8 +41,7 @@
 ;; Babel Languages
 (org-babel-do-load-languages
 'org-babel-load-languages
-'((mermaid .t)
-(scheme . t)
+'((scheme . t)
 (dot . t)
 (python . t)))
 
