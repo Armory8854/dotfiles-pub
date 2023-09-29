@@ -1,10 +1,8 @@
-call plug1#begin()
-
+call plug#begin()
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/syntastic'
 Plug 'valloric/youcompleteme'
-
 call plug#end()
 
 set nocompatible
