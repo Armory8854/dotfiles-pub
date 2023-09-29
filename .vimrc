@@ -3,8 +3,10 @@ Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/syntastic'
 Plug 'valloric/youcompleteme'
+Plug 'morhetz/gruvbox'
 call plug#end()
 
+autocmd vimenter * ++nested colorscheme gruvbox
 set nocompatible
 filetype on
 filetype plugin on
@@ -17,4 +19,4 @@ set tabstop=4
 set ignorecase
 set wildmenu
 set wildmode=list:longest
-set wildignore=*.jpg, *.png, *.docx, *.csv, *.pdf
+set wildignore=*.jpg,*.png,*.docx,*.csv,*.pdf
