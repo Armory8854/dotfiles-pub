@@ -7,6 +7,7 @@ Plug 'morhetz/gruvbox'
 call plug#end()
 
 autocmd vimenter * ++nested colorscheme gruvbox
+set background=dark
 set nocompatible
 filetype on
 filetype plugin on
