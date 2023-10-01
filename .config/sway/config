@@ -59,7 +59,7 @@ bindsym Mod4+Shift+space floating toggle
 bindsym Mod4+Up focus up
 bindsym Mod4+a focus parent
 bindsym Mod4+b exec brightnessctl set 10%+
-bindsym Mod4+d exec BEMENU_SCALE=2 bemenu-run
+bindsym Mod4+d exec rofi -show drun
 bindsym Mod4+e layout toggle split
 bindsym Mod4+f fullscreen toggle
 bindsym Mod4+h focus left
@@ -109,5 +109,5 @@ gaps outer 10
 smart_borders on
 exec swaybg -i $HOME/Pictures/WP/*
 exec swayidle -w timeout 360 'bash $HOME/.config/sway/swaylock.sh' before-sleep 'bash $HOME/.config/sway/swaylock.sh'
-
+exec mako -c /home/celer/.config/mako/config
 #exec "/nix/store/anvbm3mcws70j0aj7yr6qni18vm69w2m-dbus-1.14.8/bin/dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP XDG_SESSION_TYPE NIXOS_OZONE_WL; systemctl --user start sway-session.target"

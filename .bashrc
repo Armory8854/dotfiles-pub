@@ -117,4 +117,8 @@ fi
 GUIX_PROFILE="$HOME/.guix-profile"
 . "$GUIX_PROFILE/etc/profile"
 
+# The path
 export PATH="$PATH:/usr/local/bin"
+
+# QT platform for icons
+export QT_QPA_PLATFORMTHEME=qt5ct
