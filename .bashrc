@@ -122,3 +122,7 @@ export PATH="$PATH:/usr/local/bin"
 
 # QT platform for icons
 export QT_QPA_PLATFORMTHEME=qt5ct
+
+# PS1 colorization
+#export PS1='\[\033]0;\u@\h:\w\007\]'
+PS1="$(if [[ ${EUID} == 0 ]]; then echo '\[\033[01;31m\]\h'; else echo '\[\033[01;32m\]\u@\h'; fi)\[\033[01;34m\] \w \$([[ \$? != 0 ]] && echo \"\[\033[01;31m\]:(\[\033[01;34m\] \")\\$\[\033[00m\] "
