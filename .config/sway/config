@@ -77,13 +77,6 @@ bindsym Mod4+space focus mode_toggle
 bindsym Mod4+v splitv
 bindsym Mod4+w layout tabbed
 
-#output "eDP-1" {
-#mode 1920x1080@60.008Hz
-#}
-
-#seat "*" {
-#xcursor_theme Vanilla-DMZ 32
-#}
 
 mode "resize" {
   bindsym Down resize grow height 10 px
@@ -107,7 +100,22 @@ bar {
 gaps inner 10
 gaps outer 10
 smart_borders on
-exec swaybg -i $HOME/Pictures/WP/*
+
+# Sets your wallpaper to whatever shows up first with this glob
+# Selects a random picture using knowledge to the following SO question
+# https://unix.stackexchange.com/questions/360540/append-to-a-pipe-and-pass-on
+exec swaybg -i "$HOME/Pictures/WP/$(ls $HOME/Pictures/WP | xargs shuf -n1 -e)"
+
+# Sets swayidle & swaylock to start
 exec swayidle -w timeout 360 'bash $HOME/.config/sway/swaylock.sh' before-sleep 'bash $HOME/.config/sway/swaylock.sh'
+
+# Sets the mako notification daemon to start
 exec mako -c /home/celer/.config/mako/config
-#exec "/nix/store/anvbm3mcws70j0aj7yr6qni18vm69w2m-dbus-1.14.8/bin/dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP XDG_SESSION_TYPE NIXOS_OZONE_WL; systemctl --user start sway-session.target"
+
+# makes sure to start the thunar daemon for faster opening
+exec thunar --daemon
+
+# You add this because of the following github linked config
+# For slow 20 second startup time for gtk applications
+# https://github.com/swaywm/sway/wiki#gtk-applications-take-20-seconds-to-start
+exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK

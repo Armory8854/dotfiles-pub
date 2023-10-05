@@ -1,0 +1,24 @@
+# Set general autoreload
+auto-reload yes
+max-items 50
+browser "lynx -vikeys"
+
+# Set url source - note the pass command
+# Dont put passwords in plaintext!
+urls-source "miniflux"
+miniflux-url "https://theape.space/"
+miniflux-login "celer"
+miniflux-passwordeval "pass show freshrss/celer"
+
+# unbind keys
+unbind-key ENTER
+unbind-key j
+unbind-key k
+unbind-key J
+unbind-key K
+
+# bind keys - vim style
+bind-key j down
+bind-key k up
+bind-key l open
+bind-key h quit

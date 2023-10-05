@@ -21,3 +21,4 @@ set ignorecase
 set wildmenu
 set wildmode=list:longest
 set wildignore=*.jpg,*.png,*.docx,*.csv,*.pdf
+set backspace=2
