@@ -118,7 +118,7 @@ GUIX_PROFILE="$HOME/.guix-profile"
 . "$GUIX_PROFILE/etc/profile"
 
 # The path
-export PATH="$PATH:/usr/local/bin"
+export PATH="$PATH:/usr/local/bin:/usr/local/go/bin:$HOME/go/bin"
 
 # QT platform for icons
 export QT_QPA_PLATFORMTHEME=qt5ct

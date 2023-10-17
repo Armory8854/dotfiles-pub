@@ -115,6 +115,9 @@ exec mako -c /home/celer/.config/mako/config
 # makes sure to start the thunar daemon for faster opening
 exec thunar --daemon
 
+# Same as above but for emacs
+exec emacs --daemon
+
 # You add this because of the following github linked config
 # For slow 20 second startup time for gtk applications
 # https://github.com/swaywm/sway/wiki#gtk-applications-take-20-seconds-to-start
