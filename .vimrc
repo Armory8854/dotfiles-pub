@@ -4,6 +4,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/syntastic'
 Plug 'valloric/youcompleteme'
 Plug 'morhetz/gruvbox'
+Plug 'mattn/emmet-vim'
 call plug#end()
 
 autocmd vimenter * ++nested colorscheme gruvbox
