@@ -27,3 +27,8 @@ set wildmenu
 set wildmode=list:longest
 set wildignore=*.jpg,*.png,*.docx,*.csv,*.pdf
 set backspace=2
+
+augroup filetype_docs
+	autocmd!
+	autocmd FileType markdown setlocal spell
+augroup END
