@@ -45,3 +45,4 @@ epr/
 menus/
 Wasteland*
 *.db
+.local/

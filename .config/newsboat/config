@@ -1,7 +1,10 @@
-# Set general autoreload
+# Set general settings
 auto-reload yes
 max-items 50
 browser "lynx -vikeys"
+
+# Set linewidth to something sane
+text-width 70
 
 # Set url source - note the pass command
 # Dont put passwords in plaintext!
@@ -22,3 +25,16 @@ bind-key j down
 bind-key k up
 bind-key l open
 bind-key h quit
+
+# Podboat Settings
+## Auto DL Podcasts?
+podcast-auto-enqueue yes
+## Change download path
+## %n = Podcast Feed Name
+download-path "~/Podcast/%n"
+
+## Change name of downloaded pods
+### %F = Date
+### %t = podcast title
+### %e = extension
+download-filename-format "%F-%t.%e"
