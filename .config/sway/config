@@ -97,8 +97,8 @@ bar {
   swaybar_command swaybar
 }
 
-gaps inner 10
-gaps outer 10
+#gaps inner 10
+#gaps outer 10
 smart_borders on
 
 # Sets your wallpaper to whatever shows up first with this glob

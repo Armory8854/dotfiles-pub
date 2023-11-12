@@ -40,3 +40,8 @@ glib*
 libreoffice/
 mbsyncrc
 alacritty/
+epr/
+*hotmail*
+menus/
+Wasteland*
+*.db

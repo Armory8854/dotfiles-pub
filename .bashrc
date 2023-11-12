@@ -129,3 +129,4 @@ PS1="$(if [[ ${EUID} == 0 ]]; then echo '\[\033[01;31m\]\h'; else echo '\[\033[0
 
 # Set the xdg cache dir manually cause
 export XDG_CACHE_HOME="~/.cache/"
+. "$HOME/.cargo/env"

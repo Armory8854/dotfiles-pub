@@ -1,0 +1,25 @@
+set my_work_email = "`pass show personal/email/outlook/work_email`"
+set from = "$my_work_email"
+set realname = "`pass show personal/real_name`"
+
+color status     brightgreen    red
+
+set imap_user = "$my_work_email"
+set smtp_url = "smtp://$my_work_email@smtp-mail.outlook.com"
+set smtp_authenticators = "login"
+set imap_pass = "`pass show personal/email/outlook/work_email_pass`"
+set smtp_pass = "$imap_pass"
+
+# Ensure TLS is enforced
+set ssl_starttls = yes
+set ssl_force_tls = yes
+
+# My mailboxes
+set folder = "~/.mail/outlook"
+set spoolfile = "+Inbox"
+set postponed = "[hotmail]/Drafts"
+set record = "+Sent Mail"
+set trash = "+Trash"
+
+
+

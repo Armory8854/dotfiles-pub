@@ -1,0 +1,27 @@
+set my_email = "`pass show personal/email/gmail/personal_username`"
+set from = "$my_email"
+set realname = "`pass show personal/real_name`"
+
+color status     brightgreen    blue
+
+set imap_user = "$my_email"
+set smtp_url = "smtps://$my_email@smtp.gmail.com:465/"
+set smtp_authenticators = "gssapi:login"
+set imap_pass = "`pass show personal/email/gmail/app_pass`"
+set smtp_pass = "$imap_pass"
+
+# Ensure TLS is enforced
+set ssl_starttls = yes
+set ssl_force_tls = yes
+
+# My mailboxes
+#set folder = "imaps://imap.gmail.com:993/[Gmail]"
+set folder = "~/.mail/gmail/[Gmail]"
+set spoolfile = "+All Mail"
+set postponed = "+Drafts"
+set record = "+Sent Mail"
+set trash = "+Trash"
+
+mailboxes =Starred ="Sent Mail" 
+
+

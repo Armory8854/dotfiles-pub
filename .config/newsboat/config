@@ -5,10 +5,10 @@ browser "lynx -vikeys"
 
 # Set url source - note the pass command
 # Dont put passwords in plaintext!
-urls-source "miniflux"
-miniflux-url "https://theape.space/"
-miniflux-login "celer"
-miniflux-passwordeval "pass show freshrss/celer"
+urls-source "ocnews"
+ocnews-url "http://10.100.0.8/"
+ocnews-login "celer"
+ocnews-passwordeval "pass show freshrss/celer"
 
 # unbind keys
 unbind-key ENTER

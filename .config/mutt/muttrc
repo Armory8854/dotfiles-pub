@@ -1,39 +1,35 @@
-# User
-set my_email = "`pass show personal/email/gmail/personal_username`"
-set from = "$my_email"
-set realname = "`pass show personal/real_name`"
+# Default account
+#source ~/.config/mutt/profile.work
+source ~/.config/mutt/profile.personal
 
-# Gmail
-set imap_user = "$my_email"
-set smtp_url = "smtps://$my_email@smtp.gmail.com:465/"
-set smtp_authenticators = "gssapi:login"
-set imap_pass = "`pass show personal/email/gmail/app_pass`"
-set smtp_pass = "$imap_pass"
+# User profile sourcing
+set my_personal_email = "`pass show personal/email/gmail/personal_username`"
+set my_work_email = "`pass show personal/email/outlook/work_email`"
+folder-hook "profile.personal"  'source ~/.config/mutt/profile.personal'
+folder-hook "profile.work"  'source ~/.config/mutt/profile.work'
 
-# Ensure TLS is enforced
-set ssl_starttls = yes
-set ssl_force_tls = yes
+# Create Groups
+#alias -group AccountsPersonal "$my_personal_email"
+#alias -group AccountsBusiness "$my_work_email"
 
-# My mailboxes
-#set folder = "imaps://imap.gmail.com:993/[Gmail]"
-set folder = "~/.mail/gmail/[Gmail]"
-set spoolfile = "+All Mail"
-set postponed = "+Drafts"
-set record = "+Sent Mail"
-set trash = "+Trash"
+# User profile send hooks
+#send-hook "%C AccountsPersonal" 'source ~/.config/mutt/profile.personal'
+#send-hook "%C AccountsBusiness" 'source ~/.config/mutt/profile.work'
 
-mailboxes =Starred ="Sent Mail" 
+# Reply hook
+reply-hook "~t $my_personal_email" 'source ~/.config/mutt/profile.personal'
+reply-hook "~t $my_work_email" 'source ~/.config/mutt/profile.work'
 
+# settings
+set pager_index_lines = 10          
+set pager_context = 3                # show 3 lines of context
+set pager_stop                       # stop at end of message
 # Where to put the stuff
 set header_cache = "$XDG_CACHE_HOME/mutt/headers"
 set message_cachedir = "$XDG_CACHE_HOME/mutt/bodies"
 set certificate_file = "$XDG_CACHE_HOME/mutt/certificates"
 unset record
 
-# settings
-set pager_index_lines = 10          
-set pager_context = 3                # show 3 lines of context
-set pager_stop                       # stop at end of message
 
 #sidebar
 set sidebar_visible # comment to disable sidebar by default
