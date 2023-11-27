@@ -1,4 +1,15 @@
 { config, pkgs, ... }:
+let 
+  vim-markdownfootnotes = pkgs.vimUtils.buildVimPlugin {
+    name = "vim-markdownfootnotes";
+    src = pkgs.fetchFromGitHub {
+      owner = "vim-pandoc";
+      repo = "vim-markdownfootnotes";
+      rev = "2b288149f48cfaf7465d25bb094ed62898f5e5b0";
+      hash = "sha256-FceYCZMNZpMaU2EaOxZ7Z2+bE00W+TmKsvVHsiBKm8Q=";
+    };
+  };
+in
 {
   home = {
 	username = "celer";
@@ -11,6 +22,45 @@
   xdg.cacheHome = ~/.cache;
   programs = {
     home-manager.enable = true;
+    neovim = {
+      enable = true;
+      extraConfig = ''
+        autocmd vimenter * ++nested colorscheme gruvbox
+        set background=dark
+        set nocompatible
+        filetype on
+        filetype plugin on
+        filetype indent on
+        syntax on
+        set number
+        set cursorline
+        set shiftwidth=4
+        set tabstop=4
+        set ignorecase
+        set wildmenu
+        set wildmode=list:longest
+        set wildignore=*.jpg,*.png,*.docx,*.csv,*.pdf
+        set backspace=2
+
+        augroup filetype_docs
+            autocmd!
+            autocmd FileType markdown setlocal spell
+        augroup END
+      '';
+      plugins = with pkgs.vimPlugins; [
+        vim-fugitive
+        nerdtree
+        syntastic
+        YouCompleteMe
+        gruvbox
+        emmet-vim
+        vim-markdown
+        vim-markdownfootnotes
+        vim-nix
+      ];
+      viAlias = true;
+      withPython3 = true;
+    };
   };
   services = {
     gammastep = {
