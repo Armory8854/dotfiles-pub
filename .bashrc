@@ -131,3 +131,6 @@ export XDG_CACHE_HOME="~/.cache/"
 
 # Define alias password store shell script I made 
 alias passbash="bash $HOME/shell/password-store.sh"
+# Nix
+# Home Manager
+. $HOME/.nix-profile/etc/profile.d/hm-session-vars.sh

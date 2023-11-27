@@ -9,6 +9,7 @@ Plug 'godlygeek/tabular'
 Plug 'preservim/vim-markdown'
 Plug 'dkarter/bullets.vim'
 Plug 'vim-pandoc/vim-markdownfootnotes'
+Plug 'LnL7/vim-nix'
 call plug#end()
 
 autocmd vimenter * ++nested colorscheme gruvbox
