@@ -113,10 +113,6 @@ if ! shopt -oq posix; then
 fi
 
 # My additions
-## Guix
-GUIX_PROFILE="$HOME/.guix-profile"
-. "$GUIX_PROFILE/etc/profile"
-
 # The path
 export PATH="$PATH:/usr/local/bin:/usr/local/go/bin:$HOME/go/bin:/opt/node/bin:/opt/firefox/"
 
@@ -129,4 +125,9 @@ PS1="$(if [[ ${EUID} == 0 ]]; then echo '\[\033[01;31m\]\h'; else echo '\[\033[0
 
 # Set the xdg cache dir manually cause
 export XDG_CACHE_HOME="~/.cache/"
+
+# Set the cargo env to source
 . "$HOME/.cargo/env"
+
+# Define alias password store shell script I made 
+alias passbash="bash $HOME/shell/password-store.sh"

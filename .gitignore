@@ -46,3 +46,6 @@ menus/
 Wasteland*
 *.db
 .local/
+*environment.d/
+*user-dirs.dirs
+*user-dirs.locale

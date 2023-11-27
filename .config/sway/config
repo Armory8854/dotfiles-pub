@@ -96,6 +96,11 @@ bar {
   status_command i3status
   swaybar_command swaybar
 }
+# Modify seats here
+seat seat0 xcursor_theme "Adwaita" 36
+
+# Also manually set xcurseor size & theme here
+exec export XCURSOR_SIZE=36
 
 #gaps inner 10
 #gaps outer 10

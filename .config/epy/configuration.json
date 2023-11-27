@@ -5,7 +5,7 @@
     "ShowProgressIndicator": true,
     "PageScrollAnimation": true,
     "MouseSupport": true,
-    "StartWithDoubleSpread": true,
+    "StartWithDoubleSpread": false,
     "DefaultColorFG": -1,
     "DefaultColorBG": -1,
     "DarkColorFG": 252,
