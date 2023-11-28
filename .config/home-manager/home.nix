@@ -49,9 +49,14 @@ in
       '';
       plugins = with pkgs.vimPlugins; [
         vim-fugitive
+        coc-sh
+        coc-git
+        coc-fzf
+        coc-yank
+        coc-yaml
+        coc-python
         nerdtree
         syntastic
-        YouCompleteMe
         gruvbox
         emmet-vim
         vim-markdown
@@ -59,6 +64,7 @@ in
         vim-nix
       ];
       viAlias = true;
+      vimAlias = true;
       withPython3 = true;
     };
   };
