@@ -92,8 +92,6 @@ mode "resize" {
 }
 
 bar {
-  font pango:DejaVu Sans Mono, FontAwesome5Free Bold Semi-Condensed 11.000000
-  status_command i3status
   swaybar_command waybar
 }
 # Modify seats here

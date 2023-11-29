@@ -41,7 +41,7 @@ in
             "clock"
           ];
           "battery" = {
-            format = "BAT: {icon} {capacity}% {time}";
+            format = "{icon} {capacity}% {time}";
             states = {
               warning = 25;
               critical = 15;
@@ -53,7 +53,7 @@ in
             format-disconnected = "No Connection";
           };
           "clock" = {
-            format = "{:%Y-%m-%d | %H:%M} ";
+            format = "{:%Y-%m-%d | :%H:%M} ";
           };
         };
       };
