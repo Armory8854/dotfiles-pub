@@ -22,6 +22,42 @@ in
   xdg.cacheHome = ~/.cache;
   programs = {
     home-manager.enable = true;
+    waybar = {
+      enable = true;
+      settings = {
+        mainbar = {
+          layer = "top";
+          position = "top";
+          modules-left = [
+            "sway/workspaces" 
+            "wlr/taskbar"
+          ];
+          modules-center = [
+            "sway/window"
+          ];
+          modules-right = [
+            "network"
+            "battery"
+            "clock"
+          ];
+          "battery" = {
+            format = "BAT: {icon} {capacity}% {time}";
+            states = {
+              warning = 25;
+              critical = 15;
+            };
+          };
+          "network" = {
+            format-wifi = "{essid} ({signalStrength}%): {ipaddr}";
+            format-ethernet = "{ifname}: {ipaddr}";
+            format-disconnected = "No Connection";
+          };
+          "clock" = {
+            format = "{:%Y-%m-%d | %H:%M} ";
+          };
+        };
+      };
+    };
     neovim = {
       enable = true;
       extraConfig = ''
