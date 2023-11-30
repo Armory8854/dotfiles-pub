@@ -24,6 +24,41 @@ in
     home-manager.enable = true;
     waybar = {
       enable = true;
+      style = ''
+        #custom-clock {
+          background: black;
+          color: white;
+        }
+        #battery {
+          background: #504905;
+          color: white;
+          padding-left: 5px;
+          padding-right: 5px;
+        }
+        #network {
+          background: olive;
+          color: white;
+          padding-left: 5px;
+          padding-right: 5px;
+        }
+        window#waybar, .modules-center, window {
+          background: #1d2021;
+          color: white;
+          padding-left: 5px;
+          padding-right: 5px;
+        }
+        #workspaces button {
+          color: white;
+        }
+        #workspaces button.focused {
+          background-color: #504905;
+          color: white;
+        }
+        #workspaces button.urgent {
+          background-color: #fe8019;
+          color: white;
+        }
+      '';
       settings = {
         mainbar = {
           layer = "top";
@@ -38,7 +73,7 @@ in
           modules-right = [
             "network"
             "battery"
-            "clock"
+            "custom/clock"
           ];
           "battery" = {
             format = "{icon} {capacity}% {time}";
@@ -54,6 +89,10 @@ in
           };
           "clock" = {
             format = "{:%Y-%m-%d | :%H:%M} ";
+          };
+          "custom/clock" = {
+            exec = "echo '  '$(date +'%Y-%m-%d %H:%M')'  '";
+            interval = 5;
           };
         };
       };
