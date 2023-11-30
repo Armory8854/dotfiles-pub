@@ -26,29 +26,39 @@ in
       enable = true;
       style = ''
         #custom-clock {
-          background: black;
+          border-radius: 10px;
+          background-color: #1d2021;
           color: white;
+          margin: 0px 10px 0px 10px;
         }
         #battery {
+          border-radius: 10px;
           background: #504905;
           color: white;
-          padding-left: 5px;
-          padding-right: 5px;
+          padding: 0px 5px 0px 5px;
+          margin: 0px 10px 0px 10px;
         }
         #network {
-          background: olive;
-          color: white;
-          padding-left: 5px;
-          padding-right: 5px;
-        }
-        window#waybar, .modules-center, window {
+          border-radius: 10px;
           background: #1d2021;
           color: white;
-          padding-left: 5px;
-          padding-right: 5px;
+          padding: 0px 5px 0px 5px; 
+          margin: 0px 10px 0px 10px;
         }
-        #workspaces button {
+        window#waybar {
+          background: #7c6f64;
           color: white;
+        }
+
+        #workspaces {
+          padding: 0px 5px 0px 5px
+        }
+
+        #workspaces button {
+          background-color: #1d2021;
+          margin: 0px 2px 0px 2px;
+          color: white;
+          border-radius: 5px;
         }
         #workspaces button.focused {
           background-color: #504905;
@@ -65,15 +75,13 @@ in
           position = "top";
           modules-left = [
             "sway/workspaces" 
-            "wlr/taskbar"
           ];
           modules-center = [
-            "sway/window"
+            "custom/clock"
           ];
           modules-right = [
             "network"
             "battery"
-            "custom/clock"
           ];
           "battery" = {
             format = "{icon} {capacity}% {time}";
