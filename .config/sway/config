@@ -59,7 +59,7 @@ bindsym Mod4+Shift+space floating toggle
 bindsym Mod4+Up focus up
 bindsym Mod4+a focus parent
 bindsym Mod4+b exec brightnessctl set 10%+
-bindsym Mod4+d exec rofi -show drun
+bindsym Mod4+d exec wofi --show drun
 bindsym Mod4+e layout toggle split
 bindsym Mod4+f fullscreen toggle
 bindsym Mod4+h focus left
@@ -70,7 +70,7 @@ bindsym Mod4+minus scratchpad show
 bindsym Mod4+r mode resize
 bindsym Mod4+s layout stacking
 bindsym Mod4+shift+d exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
-bindsym Mod4+shift+f exec --no-startup-id slurp | grim -g - $HOME/Pictures/SS/$(date +'screenshot_%Y-%m-%d-%H%M%S.png')
+bindsym Mod4+shift+f exec --no-startup-id bash ~/.config/sway/screenshot.sh
 bindsym Mod4+shift+m exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 bindsym Mod4+shift+u exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
 bindsym Mod4+space focus mode_toggle
@@ -111,16 +111,14 @@ smart_borders on
 exec swaybg -i "$HOME/Pictures/WP/$(ls $HOME/Pictures/WP | xargs shuf -n1 -e)"
 
 # Sets swayidle & swaylock to start
-exec swayidle -w timeout 360 'bash $HOME/.config/sway/swaylock.sh' before-sleep 'bash $HOME/.config/sway/swaylock.sh'
+exec swayidle -w timeout 360 'bash $HOME/.config/sway/swaylock.sh' 
+
+# Sets suspend functionality up
+# 1 hour untouched - sleep time
+exec swayidle -w timeout 3600 'systemctl suspend'
 
 # Sets the mako notification daemon to start
 exec mako -c /home/celer/.config/mako/config
-
-# makes sure to start the thunar daemon for faster opening
-exec thunar --daemon
-
-# Same as above but for emacs
-exec emacs --daemon
 
 # You add this because of the following github linked config
 # For slow 20 second startup time for gtk applications
