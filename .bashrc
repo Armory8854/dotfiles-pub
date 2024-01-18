@@ -127,10 +127,7 @@ PS1="$(if [[ ${EUID} == 0 ]]; then echo '\[\033[01;31m\]\h'; else echo '\[\033[0
 export XDG_CACHE_HOME="~/.cache/"
 
 # Set the cargo env to source
-. "$HOME/.cargo/env"
+#. "$HOME/.cargo/env"
 
 # Define alias password store shell script I made 
 alias passbash="bash $HOME/shell/password-store.sh"
-# Nix
-# Home Manager
-. $HOME/.nix-profile/etc/profile.d/hm-session-vars.sh
