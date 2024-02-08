@@ -1,0 +1,22 @@
+* News                                                               :elfeed:
+** Linux                                                             :linux:
+*** [[https://omgubuntu.co.uk/feed][OMG Ubuntu]]                                                     :ubuntu:
+*** Arch                                                             :arch:
+**** [[https://archlinux.org/feeds/news/][Arch Linux - News]]
+*** Software Freedom                                             :softfree:
+**** [[https://www.fsf.org/static/fsforg/rss/news.xml][Free Software Foundation - News]]                                 :fsf:
+**** [[https://www.fsf.org/static/fsforg/rss/blogs.xml][Free Software Foundation - Blog]]                            :blog:fsf:
+**** [[https://www.eff.org/rss][EFF - Electronic Frontier Foundation]]                            :eff:
+** Tech                                                               :tech:
+*** [[https://feeds.arstechnica.com/arstechnica/technology-lab][Ars Technica - Technology Lab]]
+*** Cybersecurity                                                :cybersec:
+**** [[https://threatpost.com/feed][Threatpost]]                                                 
+**** [[https://www.theregister.com/security/headlines.atom][The Register]]
+* Aggregators                                                        :elfeed:
+** [[https://hnrss.org/frontpage][Hacker News - Front Page]]                                      :tech:news:
+* Blogs                                                                :blog:
+** Linux                                                             :linux:
+*** [[https://unixsheikh.com/feed.rss][Unix Sheikh]]                                                  :unix:bsd:
+** [[https://stallman.org/rss/rss.xml][Richard Stallman - Blog]]                                    :gnu:softfree:
+** General
+*** [[https://thenewleafjournal.com/feed][The New Leaf Journal]]                                          :general:

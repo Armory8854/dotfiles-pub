@@ -1,3 +1,4 @@
+" Plugins
 call plug#begin()
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree'
@@ -13,6 +14,7 @@ Plug 'LnL7/vim-nix'
 Plug 'img-paste-devs/img-paste.vim'
 call plug#end()
 
+" Gen settings
 autocmd vimenter * ++nested colorscheme gruvbox
 set background=dark
 set nocompatible
@@ -41,3 +43,8 @@ autocmd FileType markdown nmap <buffer><silent> <leader>p :call mdip#MarkdownCli
 " there are some defaults for image directory and image name, you can change them
 let g:mdip_imgdir = 'img'
 " let g:mdip_imgname = 'image'
+
+" Custom Keymaps
+"" Date = C-z
+:nnoremap <F5> "=strftime("%F")<CR>
+:inoremap <F5> <C-R>=strftime("%F")<CR>
