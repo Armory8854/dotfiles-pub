@@ -9,6 +9,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(browse-url-text-browser "eww")
  '(display-line-numbers t)
  '(org-adapt-indentation t)
  '(org-default-priority 67)
@@ -56,9 +57,18 @@
 (evil-mode 1)
 
 ;; Elfeed stuff
-;(elfeed-org)
-;(setq rmh-elfeed-org-files
-;(list "~/.emacs.d/elfeed.org"))
+(require 'elfeed-org)
+(elfeed-org)
+(setq rmh-elfeed-org-files (list "~/.emacs.d/elfeed.org"))
+
+;; Browser stuff
+;; You can assign whatever you cant here
+;; IE chrome, firefox, lynx, w3m, etc.
+(setq browse-url-browser-function 'browse-url-generic
+      browse-url-generic-program "w3m")
+
+;; (setq browse-url-browser-function 'eww-browse-url)
+
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

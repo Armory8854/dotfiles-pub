@@ -123,6 +123,9 @@ export QT_QPA_PLATFORMTHEME=qt5ct
 #export PS1='\[\033]0;\u@\h:\w\007\]'
 PS1="$(if [[ ${EUID} == 0 ]]; then echo '\[\033[01;31m\]\h'; else echo '\[\033[01;32m\]\u@\h'; fi)\[\033[01;34m\] \w \$([[ \$? != 0 ]] && echo \"\[\033[01;31m\]:(\[\033[01;34m\] \")\\$\[\033[00m\] "
 
+# Gruvbox Colorizations
+. "$HOME/git/gruvbox/gruvbox_256palette.sh"
+
 # Set the xdg cache dir manually cause
 export XDG_CACHE_HOME="~/.cache/"
 
@@ -131,3 +134,5 @@ export XDG_CACHE_HOME="~/.cache/"
 
 # Define alias password store shell script I made 
 alias passbash="bash $HOME/shell/password-store.sh"
+
+
