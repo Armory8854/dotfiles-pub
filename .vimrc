@@ -12,6 +12,7 @@ Plug 'dkarter/bullets.vim'
 Plug 'vim-pandoc/vim-markdownfootnotes'
 Plug 'LnL7/vim-nix'
 Plug 'img-paste-devs/img-paste.vim'
+Plug 'elzr/vim-json'
 call plug#end()
 
 " Gen settings
