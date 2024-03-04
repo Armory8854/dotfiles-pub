@@ -297,18 +297,25 @@
     font-size: 0.9em;
 }
 /* Workspaces stuff */
-#workspaces {
+#tags {
 }
-#workspaces button {
+#tags button {
     background: @font_gruv_normal;
     padding: 0em 1.2em;
     color: @font_dark_alternative;
     min-width: 0em;
 }
-#workspaces button.focused {
+/*#tags button.occupied {
+	background: @light;
+	color: @font_v_darker;
+}*/
+
+#tags  button.focused {
     font-weight: bolder; /* Somewhy the bar-wide setting is ignored*/
+	background: @font_gruv_faded;
+	color: @black;
 }
-#workspaces button.urgent {
+#tags  button.urgent {
     color: #c9545d;
     opacity: 1;
 }

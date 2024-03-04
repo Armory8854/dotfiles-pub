@@ -1,9 +1,19 @@
 [{
 	"layer": "top",
 	"position": "top",
-    "modules-left": ["sway/workspaces", "sway/mode", "sway/window"],
+    "modules-left": ["river/tags", "river/mode", "river/window"],
     "modules-center": ["clock"],
     "modules-right": ["cpu", "memory", "disk"],
+	"river/tags": {
+		"num-tags": 5,
+		"set-tags": [
+			2147483649,
+			2147483650,
+			2147483652,
+			2147483656,
+			2147483664
+		]
+	},
     "sway/window": {
         "max-length": 50
     },
@@ -57,11 +67,11 @@
 		},
 		"backlight": {
 			"format": "{percent}% {icon}",
-			"format-icons": ["Br"]
+			"format-icons": ["☼"]
 		},
 		"battery": {
-			"format": "{capacity}% {icon}",
-			"format-icons": ["Bty"]
+			"format": "{icon} {capacity}% {time}",
+			"format-icons": "[+][   ][-]"
 		},
 		"network": {
 			"interface": "wlan0",

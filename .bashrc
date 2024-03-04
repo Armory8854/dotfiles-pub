@@ -127,7 +127,7 @@ PS1="$(if [[ ${EUID} == 0 ]]; then echo '\[\033[01;31m\]\h'; else echo '\[\033[0
 . "$HOME/git/gruvbox/gruvbox_256palette.sh"
 
 # Set the xdg cache dir manually cause
-export XDG_CACHE_HOME="~/.cache/"
+export XDG_CACHE_HOME="$HOME/.cache/"
 
 # Set the cargo env to source
 #. "$HOME/.cargo/env"
@@ -135,16 +135,5 @@ export XDG_CACHE_HOME="~/.cache/"
 # Define alias password store shell script I made 
 alias passbash="bash $HOME/shell/password-store.sh"
 
-
-
-# Automatically added by the Guix install script.
-if [ -n "$GUIX_ENVIRONMENT" ]; then
-    if [[ $PS1 =~ (.*)"\\$" ]]; then
-        PS1="${BASH_REMATCH[1]} [env]\\\$ "
-    fi
-fi
-
-# Manually added for the Guix Home implementation
-HOME_ENVIRONMENT=$HOME/.guix-home
-. $HOME_ENVIRONMENT/setup-environment
-$HOME_ENVIRONMENT/on-first-login
+# Add home manager variables
+source $HOME/.nix-profile/etc/profile.d/hm-session-vars.sh
