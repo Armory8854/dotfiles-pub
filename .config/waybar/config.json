@@ -41,7 +41,7 @@
 		},
 		"cpu": {
 			"interval": 10,
-			"format": "{usage}% CPU"
+			"format": "{avg_frequency} - {usage}% CPU"
 		},
 		"disk": {
 			"interval": 30,

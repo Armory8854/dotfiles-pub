@@ -21,7 +21,6 @@
     desktopEntries = {
       slack = {
         exec = "${pkgs.slack}/bin/slack %u";
-#        categories = [ "internet" ];
         name = "slack";
       };
     };
