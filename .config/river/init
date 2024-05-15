@@ -162,15 +162,22 @@ riverctl map normal Super+Shift B spawn 'brightnessctl set 10%-'
 exec waybar &
 
 # My additions
-#exec swaybg -i "$HOME/Pictures/WP/$(shuf -en1 $HOME/Pictures/WP/*) &"
+exec bash "$HOME/.config/river/sway_bg.sh" &
 
 # Sets swayidle & swaylock to start
 exec swayidle -w timeout 360 'bash $HOME/.config/sway/swaylock.sh' &
 
+# Sets computer to suspend after not being touched for X seconds
+exec swayidle -w timeout 1800 'doas /usr/bin/hibernate-ram' &
+
 # Turns on the foot server
 exec foot -s &
+
+# Execs gammastep - comment out if undesired
+exec gammastep &
 
 # You add this because of the following github linked config
 # For slow 20 second startup time for gtk applications
 # https://github.com/swaywm/sway/wiki#gtk-applications-take-20-seconds-to-start
 exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK &
+

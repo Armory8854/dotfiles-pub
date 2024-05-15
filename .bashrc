@@ -114,7 +114,7 @@ fi
 
 # My additions
 # The path
-export PATH="$PATH:/usr/local/bin:/usr/local/go/bin:$HOME/go/bin:/opt/node/bin:/opt/firefox/"
+export PATH="$PATH:/usr/local/bin:/usr/local/go/bin:$HOME/go/bin:/opt/node/bin:$HOME/.cargo/bin"
 
 # QT platform for icons
 export QT_QPA_PLATFORMTHEME=qt5ct

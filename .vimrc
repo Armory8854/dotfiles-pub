@@ -13,6 +13,7 @@ Plug 'vim-pandoc/vim-markdownfootnotes'
 Plug 'LnL7/vim-nix'
 Plug 'img-paste-devs/img-paste.vim'
 Plug 'elzr/vim-json'
+Plug 'lervag/wiki.vim'
 call plug#end()
 
 " Gen settings
@@ -49,3 +50,7 @@ let g:mdip_imgdir = 'img'
 "" Date = C-z
 :nnoremap <F5> "=strftime("%F")<CR>
 :inoremap <F5> <C-R>=strftime("%F")<CR>
+
+" wiki.vim settings
+"" wiki root
+let g:wiki_root = '~/wiki'
