@@ -95,11 +95,11 @@ bar {
   swaybar_command waybar
 }
 # Modify seats here
-exec seat seat0 xcursor_theme "Adwaita" 36
+exec seat seat0 xcursor_theme "Bibita-Modern-Ice" 32
 # Manually launch bar as an exec instead of the bar command - Why? The GD clock
 
 # Also manually set xcurseor size & theme here
-exec export XCURSOR_SIZE=36
+exec export XCURSOR_SIZE=32
 
 #gaps inner 10
 #gaps outer 10
