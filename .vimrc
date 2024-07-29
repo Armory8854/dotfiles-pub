@@ -3,7 +3,7 @@ call plug#begin()
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/syntastic'
-Plug 'valloric/youcompleteme'
+" Plug 'valloric/youcompleteme'
 Plug 'morhetz/gruvbox'
 Plug 'mattn/emmet-vim'
 Plug 'godlygeek/tabular'

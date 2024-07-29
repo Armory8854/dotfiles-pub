@@ -48,7 +48,7 @@
 		"layer": "top",
 		"position": "bottom",
 		"modules-left": [ "network" ],
-		"modules-center": [ ],
+		"modules-center": [ "tray" ],
 		"modules-right": [ "pulseaudio", "backlight", "battery" ],
 		"pulseaudio": {
 			"format": "VOL: {volume}%",
@@ -68,5 +68,9 @@
 			"format-wifi": "{ipaddr} {essid} {signalStrength}%",
 			"tooltip-format-disconnected": "Disconnected",
 			"max-length": 50
+		},
+		"tray": {
+			"icon-size": 21,
+			"spacing": 10
 		}
 }]

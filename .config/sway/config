@@ -105,25 +105,30 @@ exec export XCURSOR_SIZE=32
 #gaps outer 10
 smart_borders on
 
+input type:keyboard {
+  xkb_options caps:escape
+}
+
 # Sets your wallpaper to whatever shows up first with this glob
 # Selects a random picture using knowledge to the following SO question
 # https://unix.stackexchange.com/questions/360540/append-to-a-pipe-and-pass-on
-exec swaybg -i "$HOME/Pictures/WP/$(shuf -en1 $HOME/Pictures/WP/*)"
+#exec swaybg -i "$HOME/Pictures/WP/$(shuf -en1 $HOME/Pictures/WP/*)"
+exec bash ~/.config/sway/sway_bg.sh &
 
 # Sets swayidle & swaylock to start
-exec swayidle -w timeout 360 'bash $HOME/.config/sway/swaylock.sh' 
+exec swayidle -w timeout 360 'bash $HOME/.config/sway/swaylock.sh' &
 
 # Sets suspend functionality up
 # 1 hour untouched - sleep time
-exec swayidle -w timeout 3600 'systemctl suspend'
+exec swayidle -w timeout 3600 'systemctl suspend' &
 
 # Sets the mako notification daemon to start
-exec mako -c /home/celer/.config/mako/config
+exec mako -c /home/celer/.config/mako/config &
 
 # Turns on the foot server
-exec foot -s
+exec foot -s &
 
 # You add this because of the following github linked config
 # For slow 20 second startup time for gtk applications
 # https://github.com/swaywm/sway/wiki#gtk-applications-take-20-seconds-to-start
-exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
+exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK &
