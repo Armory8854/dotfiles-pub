@@ -59,7 +59,7 @@ bindsym Mod4+Shift+space floating toggle
 bindsym Mod4+Up focus up
 bindsym Mod4+a focus parent
 bindsym Mod4+b exec brightnessctl set 10%+
-bindsym Mod4+d exec wofi --show drun
+bindsym Mod4+d exec bemenu-run
 bindsym Mod4+e layout toggle split
 bindsym Mod4+f fullscreen toggle
 bindsym Mod4+h focus left
@@ -92,14 +92,27 @@ mode "resize" {
 }
 
 bar {
-  swaybar_command waybar
+  swaybar_command swaybar
+  status_command i3status
 }
 # Modify seats here
-exec seat seat0 xcursor_theme "Bibita-Modern-Ice" 32
-# Manually launch bar as an exec instead of the bar command - Why? The GD clock
+exec seat * xcursor_theme gentoo-blue 32
 
 # Also manually set xcurseor size & theme here
 exec export XCURSOR_SIZE=32
+
+# G settings stuff
+
+
+set $gnome-schema org.gnome.desktop.interface
+exec_always {
+#    gsettings set $gnome-schema gtk-theme 'theme name'
+#    gsettings set $gnome-schema icon-theme 'icon theme name'
+    gsettings set $gnome-schema cursor-theme 'gentoo-blue'
+	gsettings set $gnome-schema cursor-size '32'
+#    gsettings set $gnome-schema font-name 'Sans 10'
+}
+
 
 #gaps inner 10
 #gaps outer 10
@@ -133,3 +146,9 @@ exec foot -s &
 # For slow 20 second startup time for gtk applications
 # https://github.com/swaywm/sway/wiki#gtk-applications-take-20-seconds-to-start
 exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK &
+
+# Set scaling to 2 for main display
+output eDP-1 scale 1.5
+
+# Launch gentoo-pipewire-launcher
+exec gentoo-pipewire-launcher &
