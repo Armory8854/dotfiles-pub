@@ -143,3 +143,12 @@ source $HOME/.nix-profile/etc/profile.d/hm-session-vars.sh
 # Set GTK themes to dark
 export GTK_THEME=Adwaita-dark
 
+# Set firefox to wayland ALWAYS
+export MOZ_ENABLE_WAYLAND=1
+
+# Mouse stuff here
+export XCURSOR_SIZE=32
+export XCURSOR_THEME=gentoo-blue
+
+# Aliases to make life easier
+alias firefox="flatpak run org.mozilla.firefox"
