@@ -152,3 +152,6 @@ output eDP-1 scale 1.5
 
 # Launch gentoo-pipewire-launcher
 exec gentoo-pipewire-launcher &
+
+# Exec 50% screen brightness as default
+exec brightnessctl set 50%
