@@ -51,3 +51,4 @@ Wasteland*
 *user-dirs.locale
 systemd/
 nvim/
+*.db
