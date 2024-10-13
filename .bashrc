@@ -134,7 +134,7 @@ export XDG_CACHE_HOME="$HOME/.cache/"
 
 # Define alias password store shell script I made 
 alias passbash="bash $HOME/shell/password-store.sh"
-alias sudo="doas"
+#alias sudo="doas"
 alias ls="ls -la --color"
 
 # Add home manager variables
@@ -152,3 +152,9 @@ export XCURSOR_THEME=gentoo-blue
 
 # Aliases to make life easier
 alias firefox="flatpak run org.mozilla.firefox"
+
+# Run TBSM if on tty1
+if [ "$(tty)" = "/dev/tty1" ]; then
+	tbsm
+fi
+

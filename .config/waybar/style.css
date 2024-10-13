@@ -36,12 +36,12 @@
 @define-color warning #ebcb8b;
 /*@define-color critical #BF616A;*/
 /*@define-color mode @bg;*/
-/*@define-color workspaces @bg;*/
-/*@define-color workspaces @nord_dark_font;*/
-/*@define-color workspacesfocused #655b53;*/
+/*@define-color tags @bg;*/
+/*@define-color tags @nord_dark_font;*/
+/*@define-color tagsfocused #655b53;*/
 /*@define-color tray @bg;*/
-/*@define-color workspacesfocused #4C566A;
-@define-color tray @workspacesfocused;
+/*@define-color tagsfocused #4C566A;
+@define-color tray @tagsfocused;
 @define-color sound #EBCB8B;
 @define-color network #5D7096;
 @define-color memory #546484;
@@ -87,7 +87,7 @@
     background: @bg;
     color: @light;
     font-family: "Cantarell", "Font Awesome 5 Pro";
-    font-size: 12pt;
+    font-size: 18px;
     font-weight: bold;
 }
 
@@ -296,26 +296,26 @@
     color: @font_dark_alternative;
     font-size: 0.9em;
 }
-/* Workspaces stuff */
-#workspaces {
+/* tags stuff */
+#tags {
 }
-#workspaces button {
+#tags button {
     background: @font_gruv_normal;
     padding: 0em 1.2em;
     color: @font_dark_alternative;
     min-width: 0em;
 }
-/*#workspaces button.occupied {
+/*#tags button.occupied {
 	background: @light;
 	color: @font_v_darker;
 }*/
 
-#workspaces  button.focused {
+#tags  button.focused {
     font-weight: bolder; /* Somewhy the bar-wide setting is ignored*/
 	background: @font_gruv_faded;
 	color: @black;
 }
-#workspaces  button.urgent {
+#tags  button.urgent {
     color: #c9545d;
     opacity: 1;
 }

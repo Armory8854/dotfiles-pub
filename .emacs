@@ -17,7 +17,7 @@
  '(org-plain-list-ordered-item-terminator 46)
  '(org-startup-indented t)
  '(org-startup-truncated nil)
- '(package-selected-packages '(elfeed-org gruvbox-theme evil))
+ '(package-selected-packages '(elfeed-org gruvbox-theme))
  '(send-mail-function 'smtpmail-send-it)
  '(smtpmail-smtp-server "smtp.gmail.com")
  '(smtpmail-smtp-service 25)
@@ -53,8 +53,8 @@
 (python . t)))
 
 ;; EVIL
-(require 'evil)
-(evil-mode 1)
+;(require 'evil)
+;(evil-mode 1)
 
 ;; Elfeed stuff
 (require 'elfeed-org)

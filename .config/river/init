@@ -137,12 +137,12 @@ riverctl border-color-unfocused 0x586e75
 riverctl set-repeat 50 300
 
 # Enable rivertile
-riverctl default-layout rivertile
-rivertile -view-padding 6 -outer-padding 6 &
+#riverctl default-layout rivertile
+#rivertile &
 
 # Uncomment this for a simple 4x4 layout
-#riverctl default-layout bsp-layout
-#river-bsp-layout --inner-gap 5 --outer-gap 5 &
+riverctl default-layout bsp-layout
+river-bsp-layout &
 
 # Add xcursor theme & icon
 export XCURSOR_THEME="gentoo-blue"
@@ -181,3 +181,5 @@ exec gammastep &
 # https://github.com/swaywm/sway/wiki#gtk-applications-take-20-seconds-to-start
 exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK &
 
+# Make the focus follow the mouse
+riverctl focus-follows-cursor normal
