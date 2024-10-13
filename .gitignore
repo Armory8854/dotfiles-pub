@@ -57,3 +57,4 @@ nvim/
 *hexchat*
 *.db
 *plugins/
+.emacs.d/elpa*
