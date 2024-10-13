@@ -134,7 +134,7 @@ export XDG_CACHE_HOME="$HOME/.cache/"
 
 # Define alias password store shell script I made 
 alias passbash="bash $HOME/shell/password-store.sh"
-alias sudo="doas"
+#alias sudo="doas"
 alias ls="ls -la --color"
 
 # Add home manager variables

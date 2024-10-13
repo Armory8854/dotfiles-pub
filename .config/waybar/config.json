@@ -1,7 +1,8 @@
-[{
+[
+	{
 	"layer": "top",
 	"position": "top",
-    "modules-left": ["sway/workspaces", "sway/window"],
+    "modules-left": ["river/tags", "river/window"],
     "modules-center": ["clock"],
     "modules-right": ["cpu", "memory", "disk"],
     "sway/window": {

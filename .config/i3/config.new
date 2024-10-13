@@ -1,0 +1,157 @@
+font pango:Noto Sans Mono 14.000000
+floating_modifier Mod4
+default_border pixel 2
+default_floating_border normal 2
+hide_edge_borders none
+focus_wrapping no
+focus_follows_mouse yes
+focus_on_window_activation smart
+mouse_warping output
+workspace_layout default
+workspace_auto_back_and_forth no
+client.focused #362706 #362706 #ffffff #464E2E #ACB992
+client.focused_inactive #333333 #5f676a #ffffff #484e50 #5f676a
+client.unfocused #333333 #222222 #888888 #292d2e #222222
+client.urgent #2f343a #900000 #ffffff #900000 #900000
+client.placeholder #000000 #0c0c0c #ffffff #000000 #0c0c0c
+client.background #362706
+bindsym Mod4+1 workspace number 1
+bindsym Mod4+2 workspace number 2
+bindsym Mod4+3 workspace number 3
+bindsym Mod4+4 workspace number 4
+bindsym Mod4+5 workspace number 5
+bindsym Mod4+6 workspace number 6
+bindsym Mod4+7 workspace number 7
+bindsym Mod4+8 workspace number 8
+bindsym Mod4+9 workspace number 9
+bindsym Mod4+Alt+h splith
+bindsym Mod4+Down focus down
+bindsym Mod4+Left focus left
+bindsym Mod4+Return exec footclient
+bindsym Mod4+Right focus right
+bindsym Mod4+Shift+1 move container to workspace number 1
+bindsym Mod4+Shift+2 move container to workspace number 2
+bindsym Mod4+Shift+3 move container to workspace number 3
+bindsym Mod4+Shift+4 move container to workspace number 4
+bindsym Mod4+Shift+5 move container to workspace number 5
+bindsym Mod4+Shift+6 move container to workspace number 6
+bindsym Mod4+Shift+7 move container to workspace number 7
+bindsym Mod4+Shift+8 move container to workspace number 8
+bindsym Mod4+Shift+9 move container to workspace number 9
+bindsym Mod4+Shift+Down move down
+bindsym Mod4+Shift+Left move left
+bindsym Mod4+Shift+Right move right
+bindsym Mod4+Shift+Up move up
+bindsym Mod4+Shift+b exec brightnessctl set 10%-
+bindsym Mod4+Shift+c reload
+bindsym Mod4+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+bindsym Mod4+Shift+greater exec mpc next
+bindsym Mod4+Shift+h move left
+bindsym Mod4+Shift+j move down
+bindsym Mod4+Shift+k move up
+bindsym Mod4+Shift+l move right
+bindsym Mod4+Shift+less exec mpc prev
+bindsym Mod4+Shift+minus move scratchpad
+bindsym Mod4+Shift+p exec mpc toggle
+bindsym Mod4+Shift+q kill
+bindsym Mod4+Shift+semicolon move right
+bindsym Mod4+Shift+space floating toggle
+bindsym Mod4+Up focus up
+bindsym Mod4+a focus parent
+bindsym Mod4+b exec brightnessctl set 10%+
+bindsym Mod4+d exec bemenu-run
+bindsym Mod4+e layout toggle split
+bindsym Mod4+f fullscreen toggle
+bindsym Mod4+h focus left
+bindsym Mod4+j focus down
+bindsym Mod4+k focus up
+bindsym Mod4+l focus right
+bindsym Mod4+minus scratchpad show
+bindsym Mod4+r mode resize
+bindsym Mod4+s layout stacking
+bindsym Mod4+shift+d exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym Mod4+shift+f exec --no-startup-id bash ~/.config/sway/screenshot.sh
+bindsym Mod4+shift+m exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+bindsym Mod4+shift+u exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
+bindsym Mod4+space focus mode_toggle
+bindsym Mod4+v splitv
+bindsym Mod4+w layout tabbed
+
+
+mode "resize" {
+  bindsym Down resize grow height 10 px
+  bindsym Escape mode default
+  bindsym Left resize shrink width 10 px
+  bindsym Return mode default
+  bindsym Right resize grow width 10 px
+  bindsym Up resize shrink height 10 px
+  bindsym h resize shrink width 10 px
+  bindsym j resize grow height 10 px
+  bindsym k resize shrink height 10 px
+  bindsym l resize grow width 10 px
+}
+
+bar {
+  swaybar_command swaybar
+  status_command i3status
+}
+# Modify seats here
+exec seat * xcursor_theme gentoo-blue 32
+
+# Also manually set xcurseor size & theme here
+exec export XCURSOR_SIZE=32
+
+# G settings stuff
+
+
+set $gnome-schema org.gnome.desktop.interface
+exec_always {
+#    gsettings set $gnome-schema gtk-theme 'theme name'
+#    gsettings set $gnome-schema icon-theme 'icon theme name'
+    gsettings set $gnome-schema cursor-theme 'gentoo-blue'
+	gsettings set $gnome-schema cursor-size '32'
+#    gsettings set $gnome-schema font-name 'Sans 10'
+}
+
+
+#gaps inner 10
+#gaps outer 10
+smart_borders on
+
+input type:keyboard {
+  xkb_options caps:escape
+}
+
+# Sets your wallpaper to whatever shows up first with this glob
+# Selects a random picture using knowledge to the following SO question
+# https://unix.stackexchange.com/questions/360540/append-to-a-pipe-and-pass-on
+#exec swaybg -i "$HOME/Pictures/WP/$(shuf -en1 $HOME/Pictures/WP/*)"
+#exec bash ~/.config/sway/sway_bg.sh &
+#exec swaybg -i "$(shuf -en1 $WALLPAPER_DIR/*)" &
+
+# Sets swayidle & swaylock to start
+exec swayidle -w timeout 360 'bash $HOME/.config/sway/swaylock.sh' &
+
+# Sets suspend functionality up
+# 1 hour untouched - sleep time
+exec swayidle -w timeout 3600 'systemctl suspend' &
+
+# Sets the mako notification daemon to start
+exec dunst &
+
+# Turns on the foot server
+exec foot -s &
+
+# You add this because of the following github linked config
+# For slow 20 second startup time for gtk applications
+# https://github.com/swaywm/sway/wiki#gtk-applications-take-20-seconds-to-start
+exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK &
+
+# Set scaling to 2 for main display
+#output HDMI-A-1 scale 1.5
+
+# Launch gentoo-pipewire-launcher
+#exec gentoo-pipewire-launcher &
+
+# Exec 50% screen brightness as default
+exec brightnessctl set 50% &

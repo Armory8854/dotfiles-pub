@@ -92,8 +92,9 @@ mode "resize" {
 }
 
 bar {
-  swaybar_command swaybar
-  status_command i3status
+#  swaybar_command swaybar
+   swaybar_command waybar
+#  status_command i3status
 }
 # Modify seats here
 exec seat * xcursor_theme gentoo-blue 32
@@ -148,7 +149,7 @@ exec foot -s &
 exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK &
 
 # Set scaling to 2 for main display
-output eDP-1 scale 1.5
+output HDMI-A-1 scale 1.5
 
 # Launch gentoo-pipewire-launcher
 exec gentoo-pipewire-launcher &
