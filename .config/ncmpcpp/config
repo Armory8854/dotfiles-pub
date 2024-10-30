@@ -336,7 +336,7 @@ mpd_music_dir = ~/easystore/Audio/Music
 ## Note: Custom command that will be executed each time song changes. Useful for
 ## notifications etc.
 ##
-#execute_on_song_change = ""
+execute_on_song_change = "bash ~/shell/mpd-scrobble/mpd-scrobble-fedi.sh"
 #
 ##
 ## Note: Custom command that will be executed each time player state
@@ -344,7 +344,7 @@ mpd_music_dir = ~/easystore/Audio/Music
 ## state (either unknown, play, pause, or stop) for its duration.
 ##
 #
-#execute_on_player_state_change = ""
+execute_on_player_state_change = "bash ~/shell/mpd-scrobble/mpd-scrobble-fedi.sh"
 #
 #playlist_show_mpd_host = no
 #
