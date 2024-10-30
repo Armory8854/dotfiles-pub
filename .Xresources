@@ -55,3 +55,9 @@ XTerm*scrollBar:                false
 XTerm*eightBitInput:            false
 XTerm*cursorBlink:              true
 XTerm.vt100.saveLines: 4096
+
+! Fix the copy paste BS
+XTerm*vt100.translations: #override \
+    Shift Ctrl <Key> C: copy-selection(CLIPBOARD) \n\
+    Shift Ctrl <Key> V: insert-selection(CLIPBOARD)
+
