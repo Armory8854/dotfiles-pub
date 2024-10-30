@@ -19,13 +19,16 @@ bspc rule -a Screenkey manage=off
 bspc config pointer_follows_focus true                                          
 bspc config pointer_follows_monitor true
 bspc config focus_follows_pointer true
-
+# You need to do this to stop that pesky gap that is added 
+# for polybar
+bspc config top_padding 0
 
 exec polybar &
 exec xcompmgr -r 0 -o 1 -a &
-exec xautolock -time 15 -locker '~/.config/i3/i3lock.sh' &
+exec xautolock -time 15 -locker "$HOME/.config/i3/i3lock.sh" &
 exec flameshot &
 exec xsetroot -cursor_name left_ptr &
 exec redshift &
 exec mpdas &
 exec mpd-discord-rpc &
+exec feh --bg-max --bg-fill --bg-center --randomize ~/Pictures/WP/* &

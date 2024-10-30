@@ -114,7 +114,7 @@ fi
 
 # My additions
 # The path
-export PATH="$PATH:/usr/local/bin:/usr/local/go/bin:$HOME/go/bin:/opt/node/bin:$HOME/.cargo/bin:~/.local/bin"
+export PATH="$PATH:/usr/local/bin:/usr/local/go/bin:$HOME/go/bin:/opt/node/bin:$HOME/.cargo/bin:$HOME/.local/bin:/usr/sbin"
 
 # QT platform for icons
 export QT_QPA_PLATFORMTHEME=qt5ct
@@ -138,13 +138,13 @@ alias passbash="bash $HOME/shell/password-store.sh"
 alias ls="ls -la --color"
 
 # Add home manager variables
-source $HOME/.nix-profile/etc/profile.d/hm-session-vars.sh
+#source $HOME/.nix-profile/etc/profile.d/hm-session-vars.sh
 
 # Set GTK themes to dark
 export GTK_THEME=Adwaita-dark
 
 # Set firefox to wayland ALWAYS
-export MOZ_ENABLE_WAYLAND=1
+#export MOZ_ENABLE_WAYLAND=1
 
 # Mouse stuff here
 export XCURSOR_SIZE=32
