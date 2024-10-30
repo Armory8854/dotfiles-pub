@@ -29,6 +29,6 @@ exec mpd-discord-rpc &
 exec feh --bg-max --bg-fill --bg-center --randomize ~/Pictures/WP/* &
 exec xrdb "$HOME/.Xresources" &
 exec xmodmap -e "clear lock" &
-exec xmodmap -e "keycode 9 = Caps_Lock NoSymbol Caps_Lock" &
+#exec xmodmap -e "keycode 9 = Caps_Lock NoSymbol Caps_Lock" &
 exec xmodmap -e "keycode 66 = Escape NoSymbol Escape" &
 
