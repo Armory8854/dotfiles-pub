@@ -1,1 +1,2 @@
 .config/aerc/accounts.conf filter=git-crypt diff=git-crypt
+.config/newsboat/urls filter=git-crypt diff=git-crypt

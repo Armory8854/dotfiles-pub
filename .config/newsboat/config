@@ -3,7 +3,7 @@ auto-reload yes
 max-items 50
 
 # externel browser
-browser "/usr/bin/lynx  %u"
+browser "/usr/bin/firefox %u"
 macro m set browser "/usr/bin/mpv %u"; open-in-browser ; set browser "/usr/bin/lynx  %u"
 macro l set browser "/usr/bin/firefox %u"; open-in-browser ; set browser "/usr/bin/lynx  %u"
 
@@ -33,3 +33,11 @@ color article            default   default
 highlight article "^(Title):.*$" blue default
 highlight article "https?://[^ ]+" red default
 highlight article "\\[image\\ [0-9]+\\]" green default
+
+# Podboat
+delete-played-files yes
+download-path "/home/celer/podcast"
+#download-filename-format "%D-%F.%e"
+#download-filename-format "%F-%f-%t.%e"
+download-filename-format "%n/%F - %t.%e"
+player "mpv --no-audio-display --speed=1.33"

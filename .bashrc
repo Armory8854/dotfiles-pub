@@ -151,7 +151,7 @@ export XCURSOR_SIZE=32
 export XCURSOR_THEME=gentoo-blue
 
 # Aliases to make life easier
-alias firefox="flatpak run org.mozilla.firefox"
+#alias firefox="flatpak run org.mozilla.firefox"
 
 # Run TBSM if on tty1
 if [ "$(tty)" = "/dev/tty1" ]; then

@@ -1,6 +1,6 @@
 ! Font 
 !XTerm*XftFont: 					Bitstream Vera Sans Mono:size=16:antialias=true
-*.font: 					Bitstream Vera Sans Mono:size=12:antialias=true
+Xterm*font: 					Bitstream Vera Sans Mono:size=12:antialias=true
 XTerm*faceName: Bitstream Vera Sans Mono
 XTerm*faceSize: 12
 ! Color of UI Components
@@ -40,7 +40,7 @@ XTerm*faceSize: 12
 ! Mouse cursor configuration, I prefer to keep it simple.
 XTerm*cursorTheme: gentoo-blue
 XTerm*pointerShape:             left_ptr
-XCursor.size: 32
+XCursor.size: 42
 
 ! Tone down the Xaw3D effect.
 XTerm*shapeStyle:               Rectangle

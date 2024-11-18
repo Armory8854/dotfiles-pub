@@ -25,6 +25,7 @@ Plug 'LnL7/vim-nix'
 Plug 'img-paste-devs/img-paste.vim'
 Plug 'elzr/vim-json'
 Plug 'lervag/wiki.vim'
+Plug 'dhruvasagar/vim-table-mode'
 call plug#end()
 
 " Gen settings

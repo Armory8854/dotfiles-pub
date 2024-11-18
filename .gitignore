@@ -58,3 +58,7 @@ nvim/
 *.db
 *plugins/
 .emacs.d/elpa*
+*caja*
+*pavucontrol*
+*tokodonrc*
+*toot*
