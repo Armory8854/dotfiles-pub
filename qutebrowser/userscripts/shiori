@@ -1,0 +1,76 @@
+#!/usr/bin/env python3
+
+import argparse
+import requests
+import json
+import os
+
+# Shiori API URL and authentication details
+SHIORI_API_URL = "http://shiori/api/bookmarks" 
+SHIORI_USERNAME = "shiori" 
+SHIORI_PASSWORD = "babymeow666" 
+
+# Create a session object that will persist the login state
+session = requests.Session()
+session.headers.update({
+    'Content-Type': 'application/json'
+})
+
+def login():
+    # Login to get the token
+    login_url = "http://shiori/api/v1/auth/login"
+    login_data = {"username": SHIORI_USERNAME, "password": SHIORI_PASSWORD}
+    response = session.post(login_url, json=login_data)
+    
+    if response.status_code != 200:
+        print(f"Failed to log in: {response.text}")
+        return False
+    
+    token = response.json().get("message", {}).get("token")
+
+    # Write token to text file
+    with open ('token.txt', 'w') as f:
+        f.write (token)
+    
+def save_to_shiori(url, title=None, tags=None):
+    try:
+        token_file = open("token.txt", "r")
+        token = token_file.read()
+        token_file.close()
+    except:
+        print("Token not found! logging in now...")
+        login()
+        return save_to_shiori(url, title=None, tags=None)
+
+    # Save the bookmark
+    bookmark_data = {
+        "url": url,
+        "title": title,
+        "tags": tags.split(",") if tags else [],
+        "createArchive": "true"
+    }
+
+    # Include the token in the Authorization header
+    headers = {"Authorization": f"Bearer {token}"}
+    response = session.post(SHIORI_API_URL, json=bookmark_data, headers=headers)
+
+    if response.status_code == 200:
+        print("Bookmark saved successfully!")
+        return True
+    elif response.text == "session has been expired":
+        print(f"Failed to save bookmark: {response.text}. Loggging back in.")
+        login(url, title=None, tags=None)
+        print("Bookmark saved successfully!")
+        return save_to_shiori()
+    else:
+        print(f"Failed to save bookmark: {response.text}.")
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Save a URL to Shiori")
+    parser.add_argument("url", help="The URL to save")
+    parser.add_argument("--title", help="The title of the bookmark", default=None)
+    parser.add_argument("--tags", help="Comma-separated tags for the bookmark", default=None)
+    args = parser.parse_args()
+    
+    save_to_shiori(args.url, title=args.title, tags=args.tags)
+

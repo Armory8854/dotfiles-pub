@@ -143,3 +143,4 @@ super + b
 
 super + shift + b
 	exec brightnessctl set 10%-
+

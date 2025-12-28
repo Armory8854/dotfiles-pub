@@ -207,3 +207,13 @@ exec xautolock -time 15 -locker '~/.config/i3/i3lock.sh' &
 
 # Autotiling
 exec autotiling &
+
+# Mouse speed
+#exec xinput --set-prop 16 'libinput Accel Speed' 0.8
+exec $HOME/.config/i3/mouse_sens.sh
+
+# Monitor placement: ASSUMES DP IS ON THE RIGHT AND YOU ONLY HAVE
+# TWO MONITORS (One HDMI on the left one DP on the right)
+exec $HOME/.config/i3/monitor_placement.sh
+
+exec setxkbmap -option caps:escape

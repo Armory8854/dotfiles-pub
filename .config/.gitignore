@@ -1,0 +1,16 @@
+MBCord/
+Raspberry Pi/
+Signal/
+audacious/
+audacity/
+balenaEtcher/
+dolphin-emu/
+etr/
+kdeglobals/
+kdeglobals
+supertuxkart/
+tigervnc/
+vkBasalt/
+*cache*
+*.eln
+caja/
